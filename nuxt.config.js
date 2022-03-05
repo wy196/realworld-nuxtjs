@@ -1,7 +1,6 @@
 // nuxt.js  的配置文件
 
 module.exports = {
-    
     router: {
         linkActiveClass: "active",
         // 自定义路由表
