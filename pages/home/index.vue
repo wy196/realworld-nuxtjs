@@ -111,7 +111,6 @@ export default {
         Pagination
     },
     async asyncData({ query, store }) {
-        console.log(store)
         const page = Number.parseInt(query.page|| 1)
         const tab = query.tab || 'global_feed'
         const  { tag } = query
@@ -119,7 +118,6 @@ export default {
         const loadArticles = store.state.user && tab === 'your_feed'
         ? getYourFeedArticles
         : getArticles
-
         const [ 
             articleRes,
             tagRes
@@ -133,8 +131,6 @@ export default {
         ])
         const { articles, articlesCount } = articleRes.data
         const { tags } = tagRes.data
-        console.log(articles, articlesCount)
-
         if (articlesCount > 0) {
             articles.forEach(article => article.favoriteDisabled = false)
         }
@@ -145,7 +141,7 @@ export default {
             limit,
             page,
             tag,
-            tab: query.tab || "global_feed"
+            tab
         }
     },
     watchQuery: ['page', 'tag', 'tab'],
