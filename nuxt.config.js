@@ -1,4 +1,4 @@
-// nuxt.js  的配置文件
+// nuxt.js的配置文件
 
 module.exports = {
     router: {
